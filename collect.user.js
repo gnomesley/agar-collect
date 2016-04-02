@@ -16,14 +16,14 @@ setTimeout(function ()
 setInterval(tick, 1000);
 
 var step = 0;
-var name = document.getElementsByClassName("agario-profile-name") [0];
-var facebookButton = document.getElementsByClassName("btn-fb") [0];
-var googleButton = document.getElementsByClassName("btn-gplus") [0];
+var name = document.getElementsByClassName("agario-profile-name")[0];
+var facebookButton = document.getElementsByClassName("btn-fb")[0];
+var googleButton = document.getElementsByClassName("btn-gplus")[0];
 var coinsButton = document.getElementById("freeCoins");
 var canvas = document.getElementById("openfl-content").childNodes[0];
 
-if (window.localStorage.context === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
-if (window.localStorage.context === "google") triggerMouseEvent("click", googleButton, 0, 0);
+if (window.localStorage.collectContext === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
+if (window.localStorage.collectContext === "google") triggerMouseEvent("click", googleButton, 0, 0);
 
 function tick()
 {
