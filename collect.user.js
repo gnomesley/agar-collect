@@ -13,6 +13,12 @@ setTimeout(function ()
     location.reload();
 }, 600000);
 
+setTimeout(function ()
+{
+    if (window.localStorage.collectContext === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
+    if (window.localStorage.collectContext === "google") triggerMouseEvent("click", googleButton, 0, 0);
+}, 3000);
+
 setInterval(tick, 1000);
 
 var step = 0;
@@ -21,9 +27,6 @@ var facebookButton = document.getElementsByClassName("btn-fb")[0];
 var googleButton = document.getElementsByClassName("btn-gplus")[0];
 var coinsButton = document.getElementById("freeCoins");
 var canvas = document.getElementById("openfl-content").childNodes[0];
-
-if (window.localStorage.collectContext === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
-if (window.localStorage.collectContext === "google") triggerMouseEvent("click", googleButton, 0, 0);
 
 function tick()
 {
