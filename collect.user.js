@@ -15,8 +15,8 @@ setTimeout(function ()
 
 setTimeout(function ()
 {
-    if (window.localStorage.collectContext === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
-    if (window.localStorage.collectContext === "google") triggerMouseEvent("click", googleButton, 0, 0);
+    if (name.innerHTML === "Guest" && window.localStorage.collectContext === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
+    if (name.innerHTML === "Guest" && window.localStorage.collectContext === "google") triggerMouseEvent("click", googleButton, 0, 0);
 }, 3000);
 
 setInterval(tick, 1000);
