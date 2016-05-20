@@ -32,7 +32,11 @@ function tick()
 {
     if (name.innerHTML === "Guest") return step = 0;
     if (step === 0) triggerMouseEvent("click", coinsButton, 0, 0);
-    if (step === 3) triggerMouseEvent("mouseup", canvas, window.innerWidth / 2 - 150, window.innerHeight / 2 + 30);
+    if (step === 3)
+    {
+        triggerMouseEvent("mousedown", canvas, window.innerWidth / 2 - 150, window.innerHeight / 2 + 30);
+        triggerMouseEvent("mouseup", canvas, window.innerWidth / 2 - 150, window.innerHeight / 2 + 30);
+    }
     if (step === 4 || step === 5) triggerKeyboardEvent("keydown", canvas, 27);
     step = (step + 1) % 6;
     if (window.storageInfo.context) window.localStorage.collectContext = window.storageInfo.context;
