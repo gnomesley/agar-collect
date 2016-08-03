@@ -8,18 +8,6 @@
 // @grant       none
 // ==/UserScript==
 
-setTimeout(function ()
-{
-    location.reload();
-}, 600000);
-
-setTimeout(function ()
-{
-    if (name.innerHTML === "Guest" && window.localStorage.collectContext === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
-    if (name.innerHTML === "Guest" && window.localStorage.collectContext === "google") triggerMouseEvent("click", googleButton, 0, 0);
-}, 3000);
-
-setInterval(tick, 1000);
 
 var step = 0;
 var name = document.getElementsByClassName("agario-profile-name")[0];
@@ -28,8 +16,7 @@ var googleButton = document.getElementsByClassName("btn-gplus")[0];
 var coinsButton = document.getElementById("freeCoins");
 var canvas = document.getElementById("openfl-content").childNodes[0];
 
-function tick()
-{
+function tick() {
     if (name.innerHTML === "Guest") return step = 0;
     if (step === 0) triggerMouseEvent("click", coinsButton, 0, 0);
     if (step === 3)
@@ -42,18 +29,27 @@ function tick()
     if (window.storageInfo.context) window.localStorage.collectContext = window.storageInfo.context;
 }
 
-function triggerMouseEvent(type, elem, x, y)
-{
+function triggerMouseEvent(type, elem, x, y) {
     var e = new Event(type, {bubbles: true, cancelable: true});
     e.clientX = x;
     e.clientY = y;
     elem.dispatchEvent(e);
 }
 
-function triggerKeyboardEvent(type, elem, keyCode)
-{
+function triggerKeyboardEvent(type, elem, keyCode) {
     var e = new Event(type, {bubbles: true, cancelable: true});
     e.keyCode = keyCode;
     e.which = keyCode;
     elem.dispatchEvent(e);
 }
+
+setTimeout(function () {
+    location.reload();
+}, 600000);
+
+setTimeout(function () {
+    if (name.innerHTML === "Guest" && window.localStorage.collectContext === "facebook") triggerMouseEvent("click", facebookButton, 0, 0);
+    if (name.innerHTML === "Guest" && window.localStorage.collectContext === "google") triggerMouseEvent("click", googleButton, 0, 0);
+}, 3000);
+
+setInterval(tick, 1000);
